@@ -18,7 +18,7 @@ function Login({ history }) {
           email.value,
           password.value
         );
-        history.push("/admin");
+        history.push("/admin/dashboard");
       } catch (error) {
         setMessage(error.message);
       }
