@@ -9,7 +9,7 @@ function App() {
     <Auth>
       <Router>
         <Switch>
-          <Private exact path="/admin/dashboard" component={Admin} />
+          <Private exact path="/admin" component={Admin} />
           <Route path="/" exact>
             <Home />
           </Route>
