@@ -14,7 +14,7 @@ function Comments({ id }) {
     const { remark } = e.target.elements;
 
     const remarker = async () => {
-      const { data, error } = await supabase
+      await supabase
         .from("complaints")
         .update({
           remark: remark.value,
