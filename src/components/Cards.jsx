@@ -1,6 +1,7 @@
 import { useState } from "react";
 import up from "../icons/up.png";
 import moment from "moment";
+import Comments from "./Comments";
 
 function Cards({ instance }) {
   const [initDrop, setDrop] = useState(false);
@@ -14,7 +15,7 @@ function Cards({ instance }) {
   };
 
   return (
-    <div className="md:container md:mx-auto flex justify-center">
+    <div className="md:container md:mx-auto flex justify-center mb-10">
       <section className="p-5 w-full md:w-1/2 block bg-gray-700">
         <p
           className="text-white text-3xl font-bold cursor-pointer hover:text-blue-400"
@@ -44,6 +45,7 @@ function Cards({ instance }) {
             )}
           </div>
         )}
+        <Comments id={instance.id} />
       </section>
     </div>
   );
