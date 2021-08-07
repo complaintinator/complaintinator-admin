@@ -38,16 +38,16 @@ function Admin() {
   return (
     <div className="mt-10">
       <Dashnavbar />
-      <div className="mx-auto container mt-10 md:w-1/2 w-full">
+      <div className="md:mx-auto md:container mt-10 flex justify-center">
         <input
           placeholder="🔍 Search..."
-          className="bg-gray-700 p-3 text-white md:w-full w-full focus:outline-none focus:ring focus:border-blue-300 rounded shadow"
+          className="bg-gray-700 p-3 text-white md:w-1/2 w-full focus:outline-none focus:ring focus:border-blue-300 rounded shadow"
           value={initQuery}
           onChange={searchHandler}
         />
       </div>
       {initData.length === 0 && (
-        <div className="md:container md:mx-auto flex justify-center">
+        <div className="md:container md:mx-auto flex justify-center mt-5">
           <Loader />
         </div>
       )}
