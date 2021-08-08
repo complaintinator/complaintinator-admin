@@ -1,29 +1,36 @@
 import { useState } from "react";
 import pencil from "../icons/pencil.png";
-import { supabase } from "../services/base";
+import Modal from "./Modal";
 
-function Comments({ id }) {
+function Comments({ instance }) {
   const [initComment, setComment] = useState(false);
 
   const dropHandler = () => {
     setComment(!initComment);
   };
 
-  const remarkHandler = (e) => {
-    e.preventDefault();
-    const { remark } = e.target.elements;
+  // const remarkHandler = (e) => {
+  //   e.preventDefault();
+  //   const { remark } = e.target.elements;
 
-    const remarker = async () => {
-      await supabase
-        .from("complaints")
-        .update({
-          remark: remark.value,
-        })
-        .eq("id", id);
-    };
+  //   const remarker = async () => {
+  //     await supabase
+  //       .from("complaints")
+  //       .update({
+  //         remark: remark.value,
+  //       })
+  //       .eq("id", id);
 
-    remarker();
-  };
+  //     await supabase
+  //       .from("complaints")
+  //       .update({
+  //         status: true,
+  //       })
+  //       .eq("id", id);
+  //   };
+
+  //   remarker();
+  // };
   return (
     <section>
       <div className="flex justify-end">
@@ -31,19 +38,7 @@ function Comments({ id }) {
           <img src={pencil} alt="pencil" className="w-5 h-5" />
         </div>
       </div>
-      {initComment && (
-        <div className="mt-2">
-          <form onSubmit={remarkHandler}>
-            <textarea
-              className="w-full h-60 bg-gray-600 text-white text-md"
-              placeholder="Type..."
-              type="text"
-              name="remark"
-            ></textarea>
-            <button>Submit</button>
-          </form>
-        </div>
-      )}
+      {initComment && <Modal instance={instance} />}
     </section>
   );
 }

@@ -45,7 +45,7 @@ function Cards({ instance }) {
             )}
           </div>
         )}
-        <Comments id={instance.id} />
+        <Comments instance={instance} />
       </section>
     </div>
   );
